@@ -6,7 +6,6 @@ import com.hrf.rxdemo.bean.BannerBean
 import com.hrf.rxdemo.bean.HomeListBean
 import com.hrf.rxdemo.model.MainModel
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import retrofit2.await
 

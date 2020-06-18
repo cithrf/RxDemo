@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.hrf.rxdemo.viewmodel.ListViewModel" />
+
+        <variable
+            name="refreshListener"
+            type="com.scwang.smart.refresh.layout.listener.OnRefreshListener" />
+
+        <variable
+            name="loadMoreListener"
+            type="com.scwang.smart.refresh.layout.listener.OnLoadMoreListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:background="#f5f5f5"
+            app:onRefreshListener="@{(v)-> refreshListener.onRefresh(v)}"
+            app:onLoadMoreListener="@{(v) -> loadMoreListener.onLoadMore(v)}"
+            app:refreshing="@{model.finishRefreshorLoadData}"
+            app:moreLoading="@{model.finishRefreshorLoadData}"
+            app:hasMore="@{model.hasMoreData}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.scwang.smart.refresh.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_list"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never" />
+
+            <com.scwang.smart.refresh.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

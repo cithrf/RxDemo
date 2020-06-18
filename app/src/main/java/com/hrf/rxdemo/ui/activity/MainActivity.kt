@@ -1,10 +1,10 @@
-package com.hrf.rxdemo
+package com.hrf.rxdemo.ui.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.google.gson.Gson
+import com.hrf.rxdemo.R
 import com.hrf.rxdemo.base.BaseActivity
 import com.hrf.rxdemo.databinding.ActivityMainBinding
 import com.hrf.rxdemo.viewmodel.MainViewModle
@@ -16,7 +16,9 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_main
+        )
         initData()
     }
 

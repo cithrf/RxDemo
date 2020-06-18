@@ -1,5 +1,6 @@
 package com.hrf.rxdemo.base
 
+import android.text.TextUtils
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
@@ -59,10 +60,10 @@ open class BaseViewModel : ViewModel(),IViewModel {
     ){
         this onResult Consumer {
             //这里进行返回判断
-            /*if (!TextUtils.equals(it.errorCode,"200")){
+            if (!TextUtils.equals(it.errorCode,"0")){
                 errorLiveData.value = it.errorMsg
                 return@Consumer
-            }*/
+            }
             next(it)
         }
     }

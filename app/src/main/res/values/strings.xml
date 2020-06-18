@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RxDemo</string>
+
+    <string name="str_zz">作者: </string>
+    <string name="str_sj">时间: </string>
+    <string name="str_kc">\u3000\u3000\u3000\u3000</string>
 </resources>
