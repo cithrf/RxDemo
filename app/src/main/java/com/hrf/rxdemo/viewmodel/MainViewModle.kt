@@ -18,8 +18,13 @@ class MainViewModle : BaseViewModel() {
     fun getList(){
         //RxJava
         model.getList(0).onResult {
+            //做点其他的事情
+            //省略其他逻辑代码
             liveData2.value = it
         }
+
+        //没有其他逻辑，直接返回数据
+        model.getList(0).onResult(liveData2::setValue)
 
     }
 
